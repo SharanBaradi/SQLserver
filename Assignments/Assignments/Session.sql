@@ -22,7 +22,7 @@
 --select * from dupkeys;
 
 use Training_EmpSample;
-select * from tblServiceTypes;
+/*select * from tblServiceTypes;
 select * from tblServiceStatus;
 select * from tblCentreMaster;
 select count(*) from tblEmployees group by name;
@@ -31,24 +31,6 @@ select * from tblEmployees;
  --select name from tblEmployees where Max(PresentBAsic)>0;
  --select name from tblemployees,(select rtrim(ltrim(tblEmployees.name)) as names from tblemployees) as a where left(a.names,1)=Right(a.names,1) and a.names=name;
  select name ,departmentcode,presentbasic from tblEmployees as a where PresentBasic =any(select max(presentbasic) from tblEmployees as b where a.departmentcode=b.departmentcode group by b.DepartmentCode) order by DepartmentCode
- WITH Temp AS (
-
-SELECT Name,DepartmentCode, presentbasic ,
-
-RANK() OVER (PARTITION BY DepartmentCode ORDER BY presentbasic DESC)
-
-AS DenseRank
-
-FROM tblEmployees )
-SELECT * FROM Temp
-
-WHERE Temp. DenseRank = 1 order by PresentBasic;
-
-
-SELECT Distinct TOP (10) 
-  FROM Training_EmpSample where
-
-select * from ;
 
 
 ----SELECT name,SUBSTRING(name,case when name like '%.%' then CHARINDEX('.', name)+1 else 1 end, CHARINDEX(' ', name) - 1 ) AS Firstname,     
@@ -56,3 +38,24 @@ select * from ;
 ----                 CHARINDEX(' ', name) + 1,
 ----                 CHARINDEX(' ', name)) AS secondname
 ----FROM tblEmployees 
+select * from tblEmployees as e right join tblServiceTypes as st on e.ServiceType=st.ServiceType;
+select e.name,st.servicetype,st.Description from  tblServiceTypes as st left join tblEmployees as e on e.ServiceType=st.ServiceType;
+
+use SharanBaradi
+--select * from table1;
+--select * from table2;
+
+--SELECT  company.company_id,company.company_name,
+--foods.item_id,foods.item_name
+--FROM table1 as company,table2 as foods;
+
+
+
+
+
+
+select * from table1 as one outer apply table2 as two ;
+ 
+ select * from table3;
+
+

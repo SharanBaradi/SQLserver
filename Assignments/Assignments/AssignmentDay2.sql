@@ -1,4 +1,5 @@
 use Training_EmpSample;
+/*
 --1.Write a query to find the all the names which are similar in pronouncing as suresh, sort the result in the order of similarity 
 Select Name from tblEmployees where Difference('Suresh',name) = 4 or name LIKE '%SURESH%' order by name;
 
@@ -64,15 +65,14 @@ select * from tblServiceStatus;
 select * from tblServiceTypes;
 select * from tblEmployees;
 
-select ,s.Description as serviceType,ss.Description as ServiceStatus,c.CentreName
+select
+ Max(case when Emp.DOJ is not Null then datediff_big(millisecond,Emp.DOJ,Emp.RetirementDate) else datediff_big(millisecond,Emp.DOJ,GETDATE()) End) as Maximum,
+ Min(case when Emp.DOJ is not Null then datediff_big(millisecond,Emp.DOJ,Emp.RetirementDate) else datediff_big(millisecond,Emp.DOJ,GETDATE()) End) as Minimum,
+ Avg(case when Emp.DOJ is not Null then datediff_big(millisecond,Emp.DOJ,Emp.RetirementDate) else datediff_big(millisecond,Emp.DOJ,GETDATE()) End) as Average
+,ST.Description as serviceType,SS.Description as ServiceStatus,Centre.CentreName
 from dbo.tblEmployees as EMP,dbo.tblServiceTypes as ST,dbo.tblServiceStatus as SS,dbo.tblCentreMaster as Centre
-where Emp.CentreCode=Centre.CentreCode group by Centre.CentreCode,emp.ServiceStatus,emp.ServiceType;
-
-select max(e.Age) as maximum_age,min(e.Age) as Minimum_age,AVG(datediff_big(millisecond,e.DOJ,GETDATE())) as Average_service,
-s.Description as serviceType,ss.Description as ServiceStatus,c.CentreName
-from dbo.tblEmployees as e,dbo.tblServiceTypes as s,dbo.tblCentreMaster as c,dbo.tblServiceStatus as ss
-where e.ServiceType=s.ServiceType and e.CentreCode=c.CentreCode 
-and e.ServiceStatus=ss.ServiceStatus group by c.CentreName,s.Description,ss.Description
+where Emp.CentreCode=Centre.CentreCode and emp.ServiceType=ST.ServiceType and Emp.ServiceStatus=SS.ServiceStatus
+group by Centre.CentreName,SS.Description,ST.Description;
 
 
 --11 write a query to find out employees whose names have Leading or Trailing spaces 
@@ -93,7 +93,6 @@ select name,len(name) from tblEmployees where charindex('  ',ltrim(rtrim(name)))
 select name,replace(replace(rtrim(ltrim(name)),'  ',' '),'.',' ') from tblEmployees;
  
  
-
 --14.Write a query to find out Max Number of words in all the employee Names . (Clue Previous queries expressions is an input to the Current Query ) 
 
 select name,Len(replace(replace(rtrim(ltrim(name)),'.',' '),'  ',' '))-Len(replace(replace(rtrim(ltrim(name)),'.',''),' ',''))+1  from tblEmployees;
@@ -105,6 +104,7 @@ select name from tblEmployees where left(ltrim(name),1)=Right(rtrim(name),1);
 
 --Method2
 select name from tblEmployees where left(ltrim(case when name like '%.%' then replace(name,substring(name,1,CHARINDEX('.',name)),'') else name end),1)=right(rtrim(name),1)
+
 
 --16.Write a Query to List all employees whose First and Second name Starts with the same Character 
 
@@ -119,33 +119,131 @@ select name,value from dbo.tblEmployees
 cross apply STRING_SPLIT(rtrim(case when name like '%.%' then replace(name,substring(name,1,CHARINDEX('.',name)),'') else name end),' ') 
 where left(ltrim(value),1)=right(rtrim(value),1) and len(value)>1
 
---select name from dbo.tblEmployees 
---where left(ltrim(case when name like '%.%' then replace(name,substring(name,1,CHARINDEX('.',name)),'') else name end),1)
--- = all (select left(value,1) from STRING_SPLIT(rtrim(case when name like '%.%' then replace(name,substring(name,1,CHARINDEX('.',name)),'') else name end),' ')) 
---and charindex(' ',ltrim(rtrim(name)))!=0
+select name from dbo.tblEmployees 
+where left(ltrim(case when name like '%.%' then replace(name,substring(name,1,CHARINDEX('.',name)),'') else name end),1)
+ = all (select left(value,1) from STRING_SPLIT(rtrim(case when name like '%.%' then replace(name,substring(name,1,CHARINDEX('.',name)),'') else name end),' ')) 
+and charindex(' ',ltrim(rtrim(name)))!=0
 
---18.Write a query to list out all the employees where any of the words (Excluding Initials) in the Name starts and ends with the same character.  (Assume there are not more than 5 words in any name )     
+
+--18.Write a query to list out all the employees where any of the words (Excluding Initials) in the Name starts and ends with the same character.  
+(Assume there are not more than 5 words in any name )     
+
+select name,value from dbo.tblEmployees 
+cross apply STRING_SPLIT(rtrim(case when name like '%.%' then replace(name,substring(name,1,CHARINDEX('.',name)),'') else name end),' ') 
+where left(ltrim(value),1)=right(rtrim(value),1) and len(value)>1
+
 Select name,value from tblemployees cross apply 
-string_split(replace(replace(rtrim(ltrim(name)),'.',' '),'  ',' '),' ') 
+string_split(replace(replace(rtrim(ltrim(name)),'.',''),'  ',' '),' ') 
+substring(rtrim(ltrim(name),charindex(rtrim(ltrim(name),
 
 --19 
---Write a Query to List out all employees where the present basic is perfectly rounded of to 100. Ex. If Basic A is 2011, Basic of B is  2100 , Basic of C is  2101 and Basic of D is  2200 . Then Only B and D should be displayed  1. Write Using ROUND  2. Write Using floor 3. write using Mod (%) 4. write using Ceiling 
+--Write a Query to List out all employees where the present basic is perfectly rounded of to 100. Ex. If Basic A is 2011, Basic of B is  2100 , 
+--Basic of C is  2101 and Basic of D is  2200 . Then Only B and D should be displayed  1. Write Using ROUND  2. Write Using floor 3. write using Mod (%) 4. write using Ceiling 
+--1)
+select name,PresentBasic from dbo.tblEmployees where round(PresentBasic,-2)=PresentBasic and PresentBasic>0
+--2)
+select name,PresentBasic from dbo.tblEmployees where floor(PresentBasic/100)=PresentBasic/100 and PresentBasic>0
+--3)
+select name,PresentBasic from dbo.tblEmployees where PresentBasic%100=0 and PresentBasic>0
+--4)
+select name,PresentBasic from dbo.tblEmployees where Ceiling(PresentBasic/100)=PresentBasic/100 and PresentBasic>0
 
---20 write a query to find out all the departments where All employees have their Present Basic rounded of to 100 21 write a query to find out all the departments where no employee has the Present Basic rounded of to 100 
+--20 write a query to find out all the departments where All employees have their Present Basic rounded of to 100 
+
+select departmentcode,Max(presentBasic) As Max from tblemployees group by departmentcode having max(presentbasic % 100) = 0;
+select departmentcode,Sum(presentBasic) As Sum from tblemployees group by departmentcode having Sum(presentbasic % 100) = 0;
+
+select departmentcode from tblemployess where 0 = ALL(
+
+
+--21 write a query to find out all the departments where no employee has the Present Basic rounded of to 100 
+
+select departmentcode from tblemployees group by departmentcode having not min(presentbasic % 100) = 0;
+select departmentcode from tblemployees group by departmentcode having min(presentbasic % 100) > 0;
+
 
 --22 
---As per the companies rule if an employee has put up service of 1 Year 3 Months and 15 days in office, Then She/he would be eligible for  Bonus. the Bonus would be Paid on first of the Next month after which  a person has attained eligibility.   Find out the eligibility date for all the employees. And also find out the age of the Employee On the date of Payment of First bonus. Display the  Age in Years, Months and Days.  Also Display the week day Name, week of the year , Day of the year and  week of the month of the date on which the person has attained the eligibility.   
+--As per the companies rule if an employee has put up service of 1 Year 3 Months and 15 days in office, Then She/he would be eligible for  Bonus. 
+the Bonus would be Paid on first of the Next month after which  a person has attained eligibility.   Find out the eligibility date for all the employees. 
+And also find out the age of the Employee On the date of Payment of First bonus. Display the  Age in Years, Months and Days. 
+ Also Display the week day Name, week of the year , Day of the year and  week of the month of the date on which the person has attained the eligibility.
+ 
+ //
+select name,doj,DATEADD(mm, DATEDIFF(mm, 0, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj)))) + 1, 0) as eligibility_date,
+concat(datediff(YY,DOB,DATEADD(mm, DATEDIFF(mm, 0, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj)))) + 1, 0)), 'years',
+datediff(MM,DOB,DATEADD(mm, DATEDIFF(mm, 0, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj)))) + 1, 0))%12,'months',
+datediff(DD,DOB,DATEADD(mm, DATEDIFF(mm, 0, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj)))) + 1, 0))%365,'days')as age_when_eligibilty,
+DATENAME(weekday,DATEADD(mm, DATEDIFF(mm, 0, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj)))) + 1, 0)) as weekday,
+DATENAME(WEEK,DATEADD(mm, DATEDIFF(mm, 0, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj)))) , 0)) as week_of_year,
+DATENAME(dayofyear,DATEADD(mm, DATEDIFF(mm, 0, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj)))), 0))as day_of_year,
+DATEpart(mm, dateadd(day,15,dateadd(month,3,dateadd(year,1,doj))))/7+1 as Week_of_month
+from dbo.tblEmployees
+   
 
 --23 Company Has decided to Pay a bonus to all its employees. The criteria is as follows  1. Service Type  1.  Employee Type  1. Minimum service is 10 .  
 --Minimum service left should be 15 Years  . Retirement age will be 60 Years  2. Service Type  1.  Employee Type  2. Minimum service is 12 .  
 --Minimum service left should be 14 Years  . Retirement age will be 55 Years  3. Service Type  1.  Employee Type  3. Minimum service is 12 .  
 --Minimum service left should be 12 Years  . Retirement age will be 55 Years  3. for  Service Type 2,3,4 Minimum Service should Be 15 and 
---Minimum service left should be 20 Years   . Retirement age will be 65 Years  Write a query to find out the employees who are eligible for bonus. 24 
+--Minimum service left should be 20 Years   . Retirement age will be 65 Years  Write a query to find out the employees who are eligible for bonus.
+
+//select distinct case when ServiceType=1 and EmployeeType=1 and datediff(yy,doj,getdate())>10 and datediff(yy,getdate(),RetirementDate)>=15 and datediff(yy,DOB,RetirementDate)=60 then name
+when ServiceType=1 and EmployeeType=2 and datediff(yy,doj,getdate())>12 and datediff(yy,getdate(),RetirementDate)>=14 and datediff(yy,DOB,RetirementDate)>=55 then name
+when ServiceType=1 and EmployeeType=3 and datediff(yy,doj,getdate())>12 and datediff(yy,getdate(),RetirementDate)>=12 and datediff(yy,DOB,RetirementDate)>=55 then name
+when ServiceType in (2,3,4)  and datediff(yy,doj,getdate())>15 and datediff(yy,getdate(),RetirementDate)>=20 and datediff(yy,DOB,RetirementDate)>=65 then name
+end as name from tblEmployees where name is not null
+
+
+ 24 
 --write a query to display the currentdate in all possible formats using convert function     
+declare @loop int
+set @loop=100
+while(@loop<=114)
+begin
+select CONVERT(varchar,getdate(),@loop) as dateFormat
+set @loop=@loop+1
+end
 
 --25 
 --Use TablpayemployeeParamDetails to write the below query: please understand the significance of each column in the table also 
 --Check out the different values for paramcode in the table.  
  
---write a query to find out all the employees who has the net payment less than the actual basic that he should have earned,  in any of the payments  
+--write a query to find out all the employees who has the net payment less than the actual basic that he should have earned,  in any of the payments
+
+select EmployeeNumber,sum(case when o.transvalue = -1  then -ActualAmount else Actualamount end) As NetPay from tblPayEmployeeparamDetails as o
+group by NoteNumber,EmployeeNumber 
+having sum(case when o.transvalue = -1  then -ActualAmount else Actualamount end) < sum(case when o.ParamCode = 'Basic'  then ActualAmount else 0 end) and 
+sum(case when o.ParamCode = 'Basic'  then ActualAmount else 0 end) != 0;
+
+select EmployeeNumber from tblPayEmployeeparamDetails as o
+group by NoteNumber,EmployeeNumber 
+having sum(ActualAmount)-2 * 
+(select sum(a.ActualAmount) from tblPayEmployeeparamDetails as a where a.TransValue=-1 and o.EmployeeNumber=a.EmployeeNumber and o.NoteNumber=a.NoteNumber)
+< (select a.ActualAmount from tblPayEmployeeparamDetails as a where a.paramcode='basic' and o.EmployeeNumber=a.EmployeeNumber and o.NoteNumber=a.NoteNumber);  
+ 
+
+
+
+
+--20)
+select DepartmentCode,sum(PresentBasic) as sum_presentbasic  from dbo.tblEmployees group by departmentcode having sum(PresentBasic % 100)=0 
+
+select  departmentcode,PresentBasic from dbo.tblEmployees as e1 where 0 = all (select PresentBasic%100 from dbo.tblEmployees as e2 where e2.departmentcode=e1.DepartmentCode)
+
+select Departmentcode from dbo.tblEmployees as a group by departmentcode having count(PresentBasic)=(select count(PresentBasic) from dbo.tblEmployees as b where a.DepartmentCode=b.DepartmentCode and PresentBasic%100=0 group by DepartmentCode)
+
+--21)
+select distinct departmentcode from dbo.tblEmployees as e1 where 0!=all (select PresentBasic%100 from dbo.tblEmployees as e2 where e2.departmentcode =e1.DepartmentCode )
+
+select Departmentcode from dbo.tblEmployees as a group by departmentcode having count(PresentBasic)=(select count(PresentBasic) from dbo.tblEmployees as b where a.DepartmentCode=b.DepartmentCode and PresentBasic%100!=0 group by DepartmentCode)
+
+
+*/
+
+select * from tblPayEmployeeparamDetails;
+--select top(25) * from tblPayEmployeeparamDetails where ActualAmount <> Amount;
+--select * from dbo.tblEmployees;
+
+
+
+
  
