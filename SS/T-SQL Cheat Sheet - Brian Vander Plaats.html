@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://brianvanderplaats.com/cheat-sheets/T-SQL-Cheat-Sheet.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="http://brianvanderplaats.com/static/img/favicon.ico">
+        <title>T-SQL Cheat Sheet - Brian Vander Plaats</title>
+        <meta name="author" content="Brian Vander Plaats">
+        <meta name="description" content="T-SQL Cheat Sheet">
+        <meta name="keywords" content="T-SQL Cheat Sheet, Brian Vander Plaats, ">
+
+        <meta content="0" property="fb:app_id">
+        <meta content="Brian Vander Plaats" property="og:site_name">
+        
+          <meta content="T-SQL Cheat Sheet" property="og:title">
+        
+        
+          <meta content="article" property="og:type">
+        
+        
+          <meta content="Personal website and blog of Brian Vander Plaats. Focus on software development articles." property="og:description">
+        
+        
+          <meta content="http://brianvanderplaats.com/cheat-sheets/T-SQL-Cheat-Sheet.html" property="og:url">
+        
+        
+        
+          <meta content="http://brianvp.github.io/static/img/brianvanderplaats.jpg" property="og:image">
+        
+        
+        
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@brianfromplace">
+        <meta name="twitter:creator" content="@brianfromplace">
+        
+          <meta name="twitter:title" content="T-SQL Cheat Sheet">
+        
+        
+          <meta name="twitter:url" content="http://brianvanderplaats.com/cheat-sheets/T-SQL-Cheat-Sheet.html">
+        
+        
+          <meta name="twitter:description" content="Personal website and blog of Brian Vander Plaats. Focus on software development articles.">
+        
+        
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://brianvanderplaats.com/feed.xml">
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="./T-SQL Cheat Sheet - Brian Vander Plaats_files/css" type="text/css">
+
+        <!-- FontAwesome icons -->
+        <link rel="stylesheet" href="./T-SQL Cheat Sheet - Brian Vander Plaats_files/74dfc6cf47.css">
+
+        <!-- Core BootStrap CSS -->
+        <link rel="stylesheet" href="./T-SQL Cheat Sheet - Brian Vander Plaats_files/bootstrap.min.css">
+        <!-- Material Design CSS -->
+        <link rel="stylesheet" href="./T-SQL Cheat Sheet - Brian Vander Plaats_files/bootstrap-material-design.min.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="./T-SQL Cheat Sheet - Brian Vander Plaats_files/syntax.css">
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="./T-SQL Cheat Sheet - Brian Vander Plaats_files/thickbox.css">
+        <link rel="stylesheet" href="./T-SQL Cheat Sheet - Brian Vander Plaats_files/main.css">
+        <script async="" src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/analytics.js.download"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68947652-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    </head>
+
+    <body class="home overflow-hidden">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="header-panel shadow-z-2">
+    <div class="container">
+    <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-12">
+      <div class="row-picture">
+        <img id="about" class="logo-img" src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/avatar.png" height="75px" width="75px">
+      </div>
+      <div class="row-details">
+      <h4 class="list-group-item-heading">Brian Vander Plaats</h4>
+      <p class="list-group-item-text">Developer</p>
+      <div class="social-icons">
+	
+        <a class="icon" target="_blank" href="https://www.facebook.com/brianvanderplaats"><i class="fa fa-facebook"></i></a>
+    
+        <a class="icon" target="_blank" href="https://twitter.com/Brianfromplace"><i class="fa fa-twitter"></i></a>
+    
+        <a class="icon" target="_blank" href="https://www.linkedin.com/pub/brian-vander-plaats/94/423/802"><i class="fa fa-linkedin"></i></a>
+    
+        <a class="icon" target="_blank" href="http://stackoverflow.com/users/24892/brian-vander-plaats"><i class="fa fa-stack-exchange"></i></a>
+    
+</div>
+      </div>
+        <div class="navbar-header pull-right">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <i class="fa fa-2x fa-bars"></i>
+            </button>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-8 col-xs-12">
+      <h2 class="blog-title-pro">T-SQL Cheat Sheet</h2>
+      <p class="info">
+      
+      
+      </p>
+      </div>
+      </div>
+      </div>
+    </div>
+    <div class="container main outer">
+        <div class="row">
+            <div class="col-md-3 col-xs-12">
+                    <nav class="menu">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="list-separator nav navbar-nav well well-primary page">
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/"><i class="fa fa-home"></i> Home</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/about-me.html"><i class="fa fa-comments"></i> About</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/cheat-sheets.html"><i class="fa fa-lightbulb-o"></i> Cheat Sheets</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="https://github.com/brianvp"><i class="fa fa-github"></i> Github</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/recommended-reading.html"><i class="fa fa-book"></i> Reading</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/feed.xml"><i class="fa fa-feed"></i> XML Feed</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/archive.html"><i class="fa fa-folder"></i> Archive</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+
+	
+	
+	
+	
+	
+	
+	<li class="col-lg-12 col-md-12 col-sm-4 col-xs-12  T-SQL-Cheat-Sheet.html"><a href="http://brianvanderplaats.com/tags.html"><i class="fa fa-folder"></i> Tags</a></li>
+
+</ul>
+    </div>
+    </nav>
+
+            </div> <!-- end /.col-md-3 -->
+
+            <div class="col-md-9 col-xs-12 full">
+                <div class="well">
+    
+    <div>
+    	<h3 id="determine-if-object-exists">Determine if object exists</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">IF</span> <span class="n">OBJECT_ID</span><span class="p">(</span><span class="s1">'product.Model'</span><span class="p">,</span> <span class="s1">'U'</span><span class="p">)</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+</code></pre>
+</div>
+
+<h3 id="add-check-constraint">add Check Constraint</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MyTable</span>
+    <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">CHK_dbo_MyTable_Value</span>
+    <span class="k">CHECK</span> <span class="p">(</span><span class="n">VALUE</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="t-sql-processing-order">T-SQL Processing Order</h3>
+
+<ol>
+  <li>From</li>
+  <li>Where</li>
+  <li>Group by</li>
+  <li>Having</li>
+  <li>Select</li>
+  <li>Order By</li>
+</ol>
+
+<h3 id="window-function">Window Function</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">PurchaseOrderID</span><span class="p">,</span> <span class="n">ItemCode</span><span class="p">,</span> <span class="n">subtotal</span><span class="p">,</span>
+ <span class="n">ROW_NUMBER</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span> <span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">PurchaseOrderID</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ItemCode</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rownum</span><span class="p">,</span>
+ <span class="k">SUM</span><span class="p">(</span><span class="n">subtotal</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">PurchoseOrderID</span><span class="p">)</span> <span class="k">AS</span> <span class="n">purchaseOrderTotal</span>
+<span class="k">FROM</span> <span class="n">pur</span><span class="p">.</span><span class="n">PurchaseOrderDetail</span>
+</code></pre>
+</div>
+
+<h3 id="casting">Casting</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CAST</span><span class="p">(</span><span class="s1">'12345'</span> <span class="k">AS</span> <span class="n">NUMERIC</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<h3 id="case-expressions">Case Expressions</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Vendor_Code</span> <span class="o">=</span>
+        <span class="k">CASE</span>
+            <span class="k">WHEN</span> <span class="n">VendorItemCode</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">THEN</span> <span class="s1">''</span>
+            <span class="k">WHEN</span> <span class="n">LEN</span><span class="p">(</span><span class="n">VendorItemCode</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="k">THEN</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">VendorItemCode</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="k">ELSE</span> <span class="n">VendorItemCode</span>
+        <span class="k">END</span>    
+<span class="k">FROM</span> <span class="n">pur</span><span class="p">.</span><span class="n">PurchaseOrderDetail</span>
+</code></pre>
+</div>
+
+<h3 id="string-functions">String Functions</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">select</span> <span class="n">LEN</span><span class="p">(</span><span class="s1">'sql server'</span><span class="p">)</span> <span class="c1">-- 10</span>
+<span class="k">select</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'sql server'</span><span class="p">)</span> <span class="c1">-- 6</span>
+<span class="k">select</span> <span class="n">PATINDEX</span><span class="p">(</span><span class="s1">'%serv%'</span><span class="p">,</span> <span class="s1">'sql server'</span><span class="p">)</span> <span class="c1">-- 5</span>
+<span class="k">select</span> <span class="k">REPLACE</span><span class="p">(</span><span class="s1">'sql server'</span><span class="p">,</span> <span class="s1">'sql'</span><span class="p">,</span> <span class="s1">'cookie'</span><span class="p">)</span> <span class="c1">-- cookie server</span>
+<span class="k">select</span> <span class="n">REPLICATE</span><span class="p">(</span><span class="s1">'sql'</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">-- sqlsqlsqlsql</span>
+<span class="k">select</span> <span class="n">STUFF</span><span class="p">(</span><span class="s1">'sql server'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'Microsoft '</span><span class="p">)</span> <span class="c1">-- Microsoft sql server</span>
+</code></pre>
+</div>
+
+<h3 id="wildcards">Wildcards</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ManufacturerCode</span>
+<span class="k">FROM</span>  <span class="n">product</span><span class="p">.</span><span class="n">Model</span>
+<span class="k">WHERE</span> <span class="n">ManufacturerCode</span>
+<span class="k">LIKE</span> <span class="s1">'PG-42%'</span> <span class="c1">--PG-42445-01 PG-42600-02</span>
+<span class="k">LIKE</span> <span class="s1">'%G-42%'</span><span class="c1">--  PG-42445-01 RG-42900-03</span>
+<span class="k">LIKE</span> <span class="s1">'RG-_____-__'</span> <span class="c1">-- RG-85000-01 RG-42900-03</span>
+<span class="k">LIKE</span> <span class="s1">'RG-[8-9]____-__'</span> <span class="c1">--  RG-85000-01, RG-95000-01</span>
+<span class="k">LIKE</span> <span class="s1">'[O-Z]G%'</span> <span class="c1">-- RG, PG, but not AG, FG, etc.  </span>
+</code></pre>
+</div>
+
+<h3 id="date-functions">Date Functions</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">select</span> <span class="n">GETDATE</span><span class="p">()</span> <span class="c1">-- 2014-01-17 07:45:59.730</span>
+<span class="k">select</span> <span class="n">DATEADD</span><span class="p">(</span><span class="k">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">getdate</span><span class="p">())</span> <span class="c1">--2015-01-17 07:45:59.730</span>
+<span class="k">select</span> <span class="n">DATEADD</span><span class="p">(</span><span class="k">month</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">getdate</span><span class="p">())</span><span class="c1">-- 2014-02-17 07:45:59.730</span>
+<span class="k">select</span> <span class="n">DATEADD</span><span class="p">(</span><span class="k">day</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">getdate</span><span class="p">())</span> <span class="c1">-- 2014-01-18 07:45:59.730</span>
+
+<span class="k">select</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="k">year</span><span class="p">,</span>  <span class="s1">'20130101'</span><span class="p">,</span> <span class="s1">'20131024'</span><span class="p">)</span> <span class="c1">-- 0</span>
+<span class="k">select</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="k">month</span><span class="p">,</span>  <span class="s1">'20130101'</span><span class="p">,</span> <span class="s1">'20131024'</span><span class="p">)</span> <span class="c1">-- 9</span>
+<span class="k">select</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span>  <span class="s1">'20130101'</span><span class="p">,</span> <span class="s1">'20131024'</span><span class="p">)</span> <span class="c1">-- 296</span>
+
+<span class="k">select</span> <span class="n">DATEPART</span><span class="p">(</span><span class="k">year</span><span class="p">,</span> <span class="n">getdate</span><span class="p">())</span> <span class="c1">-- 2014</span>
+<span class="k">select</span> <span class="n">DATEPART</span><span class="p">(</span><span class="k">month</span><span class="p">,</span> <span class="n">getdate</span><span class="p">())</span> <span class="c1">-- 1</span>
+<span class="k">select</span> <span class="n">DATEPART</span><span class="p">(</span><span class="k">day</span><span class="p">,</span> <span class="n">getdate</span><span class="p">())</span> <span class="c1">-- 17</span>
+
+<span class="k">select</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">())</span> <span class="c1">-- 2014</span>
+<span class="k">select</span> <span class="k">MONTH</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">())</span> <span class="c1">-- 1</span>
+<span class="k">select</span> <span class="k">DAY</span><span class="p">(</span><span class="n">getdate</span><span class="p">())</span> <span class="c1">-- 17</span>
+
+<span class="k">select</span> <span class="n">DATENAME</span><span class="p">(</span><span class="k">month</span><span class="p">,</span> <span class="n">getdate</span><span class="p">())</span> <span class="c1">-- January</span>
+<span class="k">select</span> <span class="n">DATENAME</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span> <span class="n">GETDATE</span><span class="p">())</span> <span class="c1">-- 17</span>
+
+<span class="k">select</span> <span class="n">ISDATE</span><span class="p">(</span><span class="s1">'20130101'</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">select</span> <span class="n">ISDATE</span><span class="p">(</span><span class="s1">'20139999'</span><span class="p">)</span> <span class="o">-</span> <span class="mi">0</span>
+</code></pre>
+</div>
+
+<h3 id="metadata-queries">Metadata Queries</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">USE</span> <span class="n">BikeStore</span>
+<span class="k">GO</span>
+
+<span class="k">SELECT</span> <span class="k">SCHEMA_NAME</span><span class="p">(</span><span class="n">SCHEMA_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="n">table_schema_name</span><span class="p">,</span> <span class="n">name</span> <span class="k">AS</span> <span class="k">table_name</span> <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">tables</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">table_schema_name</span><span class="p">,</span> <span class="k">table_name</span>
+
+
+<span class="k">SELECT</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">columns</span>
+<span class="k">WHERE</span> <span class="n">OBJECT_ID</span> <span class="o">=</span> <span class="n">OBJECT_ID</span><span class="p">(</span><span class="s1">'product.Category'</span><span class="p">)</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">TABLES</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">TABLE_PRIVILEGES</span> <span class="c1">-- table specific privileges granted to accounts</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">VIEW_TABLE_USAGE</span> <span class="c1">-- tables referenced by views</span>
+
+<span class="k">EXEC</span> <span class="n">sys</span><span class="p">.</span><span class="n">sp_tables</span>
+<span class="k">EXEC</span> <span class="n">sys</span><span class="p">.</span><span class="n">sp_help</span> <span class="o">@</span><span class="n">objname</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'product.Model'</span> <span class="c1">-- returns general info about the object</span>
+
+
+<span class="k">SELECT</span> <span class="n">SERVERPROPERTY</span><span class="p">(</span><span class="s1">'ProductLevel'</span><span class="p">)</span> <span class="c1">-- current value is 'SP1'</span>
+<span class="k">SELECT</span> <span class="n">SERVERPROPERTY</span><span class="p">(</span><span class="s1">'Edition'</span><span class="p">)</span> <span class="c1">-- Standard Edition (64-bit)</span>
+<span class="k">SELECT</span> <span class="o">@@</span><span class="k">VERSION</span> <span class="c1">-- Microsoft SQL Server 2008 R2 (SP1) - 10.50.2550.0 (X64)   Jun 11 2012 16:41:53   Copyright (c) Microsoft Corporation  Standard Edition (64-bit) on Windows NT 6.1 &lt;X64&gt; (Build 7601: Service Pack 1) (Hypervisor)</span>
+<span class="k">SELECT</span> <span class="n">DATABASEPROPERTYEX</span><span class="p">(</span><span class="s1">'enterprise'</span><span class="p">,</span> <span class="s1">'Collation'</span><span class="p">)</span> <span class="c1">-- SQL_Latin1_General_CP1_CI_AS</span>
+<span class="k">SELECT</span> <span class="n">OBJECTPROPERTY</span><span class="p">(</span><span class="n">OBJECT_ID</span><span class="p">(</span><span class="s1">'product.PartNumber), '</span><span class="n">TableHasPrimaryKey</span><span class="s1">') -- 1
+</span></code></pre>
+</div>
+
+<h3 id="cross-join">CROSS JOIN</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CROSS</span> <span class="k">JOIN</span>
+    <span class="k">DECLARE</span> <span class="o">@</span><span class="n">digits</span> <span class="k">TABLE</span> <span class="p">(</span><span class="n">digit</span> <span class="n">INT</span><span class="p">)</span>
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">digits</span> <span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                    
+    <span class="k">SELECT</span>  <span class="n">d2</span><span class="p">.</span><span class="n">digit</span><span class="p">,</span> <span class="n">d1</span><span class="p">.</span><span class="n">digit</span> <span class="c1">-- returns 9 record result</span>
+        <span class="k">FROM</span> <span class="o">@</span><span class="n">digits</span> <span class="n">d1</span>
+            <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="o">@</span><span class="n">digits</span> <span class="n">d2</span>
+</code></pre>
+</div>
+
+<h3 id="derived-tables">Derived Tables</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">SELECT</span> <span class="n">SalesYear</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">LineTotal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TotalSold</span>
+    <span class="k">FROM</span> <span class="p">(</span>
+            <span class="k">SELECT</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">DateSold</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SalesYear</span><span class="p">,</span> <span class="n">LineTotal</span>
+            <span class="k">FROM</span> <span class="n">sales</span><span class="p">.</span><span class="n">SkuSales</span>
+         <span class="p">)</span> <span class="n">SalesByYear</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">SalesYear</span>
+    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">TotalSold</span> <span class="k">DESC</span>
+</code></pre>
+</div>
+
+<h3 id="common-table-expressions---ctes">Common Table Expression’s  / CTE’s</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">WITH</span> <span class="o">&lt;</span><span class="n">CTEname</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">column1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">column2</span><span class="o">&gt;</span><span class="p">)</span> <span class="c1">-- column list optional</span>
+    <span class="k">as</span>
+    <span class="p">(</span>
+        <span class="o">&lt;</span><span class="n">subquery</span><span class="o">&gt;</span>
+    <span class="p">)</span>
+    <span class="o">&lt;</span><span class="k">outer</span> <span class="n">query</span><span class="o">&gt;</span>
+
+
+    <span class="k">WITH</span> <span class="n">SalesByYearCTE</span> <span class="p">(</span> <span class="n">SalesYear</span><span class="p">,</span> <span class="n">LineTotal</span> <span class="p">)</span> <span class="c1">-- list of columns optional</span>
+    <span class="k">AS</span>
+    <span class="p">(</span>
+        <span class="k">SELECT</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">DateSold</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SalesYear</span><span class="p">,</span> <span class="n">LineTotal</span> 
+            <span class="k">FROM</span> <span class="n">sales</span><span class="p">.</span><span class="n">SkuSales</span>
+    <span class="p">)</span> <span class="c1">-- to add more CTE's, add a comma here</span>
+    <span class="k">SELECT</span> <span class="n">SalesYear</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">LineTotal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TotalSold</span>
+    <span class="k">FROM</span> <span class="n">SalesByYearCTE</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">SalesYear</span>
+    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">TotalSold</span> <span class="k">DESC</span>
+</code></pre>
+</div>
+
+<h3 id="recursive-cte">Recursive CTE</h3>
+
+<p>useful for querying tables that are self-referencing</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">declare</span> <span class="o">@</span><span class="n">Location_Table</span> <span class="k">table</span>
+        <span class="p">(</span>
+            <span class="n">Location_ID</span> <span class="n">int</span><span class="p">,</span>
+            <span class="n">Location_Name</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+            <span class="n">Location_Parent</span> <span class="n">int</span> <span class="k">null</span>
+        <span class="p">)</span>
+
+        <span class="k">insert</span> <span class="k">into</span> <span class="o">@</span><span class="n">Location_Table</span> <span class="p">(</span><span class="n">Location_ID</span><span class="p">,</span> <span class="n">Location_Name</span><span class="p">,</span> <span class="n">Location_Parent</span><span class="p">)</span>
+        <span class="k">select</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'United States'</span><span class="p">,</span> <span class="k">null</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'Iowa'</span><span class="p">,</span> <span class="mi">1</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'South Dakota'</span><span class="p">,</span> <span class="mi">1</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'Minnesota'</span><span class="p">,</span> <span class="mi">1</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'Nebraska'</span><span class="p">,</span> <span class="mi">1</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'Orange City'</span><span class="p">,</span> <span class="mi">2</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'Sioux Center'</span><span class="p">,</span> <span class="mi">2</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'Hospers'</span><span class="p">,</span> <span class="mi">2</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">'Sioux Falls'</span><span class="p">,</span> <span class="mi">3</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'Brookings'</span><span class="p">,</span> <span class="mi">3</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">'102 Michigan Ave SW'</span><span class="p">,</span> <span class="mi">6</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">'412 4th St SE'</span><span class="p">,</span> <span class="mi">6</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">'Utility Room'</span><span class="p">,</span> <span class="mi">11</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">'Kitchen'</span><span class="p">,</span> <span class="mi">11</span> <span class="k">union</span> <span class="k">all</span>
+        <span class="k">select</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'Chest Freezer'</span><span class="p">,</span> <span class="mi">13</span><span class="p">;</span>
+
+
+        <span class="k">with</span> <span class="n">Location_CTE</span> <span class="k">as</span>
+        <span class="p">(</span>
+            <span class="c1">-- anchor</span>
+            <span class="k">select</span> <span class="n">location_ID</span><span class="p">,</span> <span class="n">location_Name</span><span class="p">,</span> <span class="n">Location_Parent</span>
+            <span class="k">from</span> <span class="o">@</span><span class="n">Location_Table</span> <span class="k">where</span> <span class="n">Location_ID</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">--  iowa</span>
+            
+            <span class="k">union</span> <span class="k">all</span>
+            
+            <span class="c1">-- recurse</span>
+            <span class="k">select</span> <span class="n">lt</span><span class="p">.</span><span class="n">Location_ID</span><span class="p">,</span> <span class="n">lt</span><span class="p">.</span><span class="n">Location_Name</span><span class="p">,</span> <span class="n">lt</span><span class="p">.</span><span class="n">Location_Parent</span>
+            <span class="k">from</span> <span class="n">Location_CTE</span> <span class="n">lc</span>
+                <span class="k">join</span> <span class="o">@</span><span class="n">Location_Table</span> <span class="n">lt</span>
+                <span class="k">on</span> <span class="n">lt</span><span class="p">.</span><span class="n">Location_Parent</span> <span class="o">=</span> <span class="n">lc</span><span class="p">.</span><span class="n">Location_ID</span>
+        <span class="p">)</span>
+        <span class="k">select</span> <span class="n">Location_ID</span><span class="p">,</span> <span class="n">Location_Name</span><span class="p">,</span>
+        <span class="p">(</span><span class="k">select</span> <span class="n">Location_Name</span> <span class="k">from</span> <span class="o">@</span><span class="n">Location_Table</span> <span class="k">where</span> <span class="n">Location_ID</span> <span class="o">=</span> <span class="n">Location_CTE</span><span class="p">.</span><span class="n">Location_Parent</span><span class="p">)</span> <span class="k">as</span> <span class="n">location_parent_name</span>
+        <span class="k">from</span> <span class="n">Location_CTE</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h3 id="correlated-queries">Correlated Queries</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="c1">-- inside WHERE clause</span>
+    <span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">1000</span> <span class="n">BillOfMaterialsID</span><span class="p">,</span> <span class="n">BillOfMaterialsRevisionID</span><span class="p">,</span> <span class="n">Quantity</span>
+    <span class="k">FROM</span> <span class="n">manufacturing</span><span class="p">.</span><span class="n">BillOfMaterials</span> <span class="n">bom_outer</span>
+    <span class="k">WHERE</span> <span class="n">BillOfMaterialsID</span> <span class="o">=</span>
+    <span class="p">(</span>
+        <span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">1</span> <span class="n">BillOfMaterialsID</span>
+        <span class="k">FROM</span> <span class="n">manufacturing</span><span class="p">.</span><span class="n">BillOfMaterial</span>  <span class="n">bom_inner</span>
+        <span class="k">WHERE</span> <span class="n">bom_inner</span><span class="p">.</span><span class="n">BillOfMaterialsRevisionID</span> <span class="o">=</span> <span class="n">bom_outer</span><span class="p">.</span><span class="n">BillOfMaterialsRevisionID</span> <span class="c1">-- outer reference</span>
+        <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">Quantity</span> <span class="k">DESC</span>
+    <span class="p">)</span>
+    
+    <span class="c1">-- inside SELECT clause</span>
+    <span class="k">SELECT</span> <span class="n">BillOfMaterialsID</span><span class="p">,</span> <span class="n">BillOfMaterialsRevisionID</span><span class="p">,</span> <span class="n">MaterialID</span><span class="p">,</span> <span class="n">Quantity</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">Amount</span> <span class="o">/</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">Quantity</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">manufacturing</span><span class="p">.</span><span class="n">BillOfMaterials</span> <span class="n">bom_inner</span> <span class="k">WHERE</span> <span class="n">bom_inner</span><span class="p">.</span><span class="n">BillOfMaterialsRevisionID</span>  <span class="o">=</span> <span class="n">bom_outer</span><span class="p">.</span><span class="n">BillOfMaterialsRevisionID</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="k">AS</span> <span class="n">percent_of_recipe</span>
+    <span class="k">FROM</span> <span class="n">manufacturing</span><span class="p">.</span><span class="n">BillOfMaterialsl</span> <span class="n">bom_outer</span>
+    <span class="k">WHERE</span> <span class="n">BillOfMaterialsRevisionID</span> <span class="o">=</span> <span class="mi">10004</span>
+</code></pre>
+</div>
+
+<h3 id="exists">EXISTS</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">mfg</span><span class="p">.</span><span class="n">Name</span>
+<span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">Manufacturer</span> <span class="n">mfg</span>
+<span class="k">WHERE</span>  <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pur</span><span class="p">.</span><span class="n">PurchaseOrder</span> <span class="n">po</span> <span class="k">WHERE</span> <span class="n">po</span><span class="p">.</span><span class="n">ManufacturerID</span> <span class="o">=</span> <span class="n">mfg</span><span class="p">.</span><span class="n">ManufacturerID</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="views">Views</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">PUR</span><span class="p">.</span><span class="n">ViewManufacturersWithPurchases</span>
+<span class="k">AS</span>
+    <span class="k">SELECT</span> <span class="n">mfg</span><span class="p">.</span><span class="n">Name</span>
+	<span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">Manufacturer</span> <span class="n">mfg</span>
+	<span class="k">WHERE</span>  <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pur</span><span class="p">.</span><span class="n">PurchaseOrder</span> <span class="n">po</span> <span class="k">WHERE</span> <span class="n">po</span><span class="p">.</span><span class="n">ManufacturerID</span> <span class="o">=</span> <span class="n">mfg</span><span class="p">.</span><span class="n">ManufacturerID</span><span class="p">)</span>
+<span class="k">GO</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">PUR</span><span class="p">.</span><span class="n">ViewManufacturersWithPurchases</span>
+</code></pre>
+</div>
+
+<h3 id="apply-operator">Apply Operator</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">-- Query 5 most recent orders for each active product</span>
+<span class="k">SELECT</span> <span class="n">a_left</span><span class="p">.</span><span class="n">PartNumberID</span><span class="p">,</span> <span class="n">p_right</span><span class="p">.</span><span class="n">DateSold</span><span class="p">,</span> <span class="n">p_right</span><span class="p">.</span><span class="n">LineTotal</span>
+<span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">PartNumber</span> <span class="n">a_left</span>
+<span class="k">CROSS</span> <span class="n">APPLY</span> <span class="c1">-- replace with OUTER APPLY to include products from left that do not have any batches</span>
+<span class="p">(</span>    
+        <span class="k">SELECT</span> <span class="n">TOP</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">PartNumberID</span><span class="p">,</span> <span class="n">DateSold</span><span class="p">,</span> <span class="n">LineTotal</span>
+        <span class="k">FROM</span> <span class="n">sales</span><span class="p">.</span><span class="n">SkuSales</span> <span class="k">AS</span> <span class="n">p_inner</span>
+        <span class="k">WHERE</span> <span class="n">p_inner</span><span class="p">.</span><span class="n">PartNumberID</span> <span class="o">=</span> <span class="n">a_left</span><span class="p">.</span><span class="n">PartNumberID</span>
+        <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">DateSold</span> <span class="k">DESC</span>
+    <span class="p">)</span> <span class="k">AS</span> <span class="n">p_right</span>
+<span class="k">WHERE</span> <span class="n">a_left</span><span class="p">.</span><span class="n">StatusID</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">a_left</span><span class="p">.</span><span class="n">PartNumberID</span><span class="p">,</span> <span class="n">p_right</span><span class="p">.</span><span class="n">DateSold</span> <span class="k">DESC</span>
+</code></pre>
+</div>
+
+<h3 id="set-operators">SET Operators</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">query</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="c1">-- column names define output columns</span>
+<span class="p">[</span><span class="k">Set</span> <span class="k">Operation</span><span class="p">]</span> <span class="c1">-- specifying ALL will return duplicates</span>
+<span class="o">&lt;</span><span class="n">query</span> <span class="mi">2</span><span class="o">&gt;</span>
+
+<span class="k">UNION</span> <span class="p">[</span><span class="k">ALL</span><span class="p">]</span> <span class="o">-</span> <span class="k">return</span> <span class="k">rows</span> <span class="k">from</span> <span class="k">both</span> <span class="n">queries</span> <span class="o">-</span> <span class="k">using</span> <span class="k">all</span> <span class="n">will</span> <span class="k">return</span> <span class="k">rows</span> <span class="k">from</span> <span class="k">both</span> <span class="n">queries</span>
+                <span class="n">even</span> <span class="n">if</span> <span class="n">they</span> <span class="k">are</span> <span class="n">duplicates</span>
+
+<span class="k">INTERSECT</span> <span class="o">-</span> <span class="k">return</span> <span class="k">rows</span> <span class="n">if</span> <span class="n">they</span> <span class="n">appear</span> <span class="k">in</span> <span class="k">both</span> <span class="n">queries</span>
+
+<span class="k">EXCEPT</span> <span class="o">-</span> <span class="k">return</span> <span class="k">rows</span> <span class="n">if</span> <span class="n">they</span> <span class="n">appear</span> <span class="k">in</span> <span class="n">the</span> <span class="mi">1</span><span class="n">st</span> <span class="n">query</span> <span class="n">but</span> <span class="k">not</span> <span class="n">the</span> <span class="mi">2</span><span class="n">nd</span> <span class="n">query</span>
+</code></pre>
+</div>
+
+<h3 id="pivot">PIVOT</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Pivot = rows-&gt; columns
+
+Pivot Process
+
+1. Group
+2. Spread
+3. Aggregate
+</code></pre>
+</div>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">SELECT</span> <span class="p">...</span>
+    <span class="k">FROM</span> <span class="o">&lt;</span><span class="n">source_table_or_table_expression</span><span class="o">&gt;</span>
+      <span class="n">PIVOT</span><span class="p">(</span><span class="o">&lt;</span><span class="n">agg_func</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aggregation_element</span><span class="o">&gt;</span><span class="p">)</span>
+            <span class="k">FOR</span> <span class="o">&lt;</span><span class="n">spreading_element</span><span class="o">&gt;</span>
+              <span class="k">IN</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">list_of_target_columns</span><span class="o">&gt;</span><span class="p">))</span> <span class="k">AS</span> <span class="o">&lt;</span><span class="n">result_table_alias</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">WITH</span> <span class="n">ProductSalesYearCTE</span>
+    <span class="k">AS</span>
+    <span class="p">(</span>
+        <span class="k">SELECT</span> <span class="n">PartNumberID</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">],[</span><span class="mi">8</span><span class="p">],[</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">],[</span><span class="mi">11</span><span class="p">],[</span><span class="mi">12</span><span class="p">]</span>
+        <span class="k">FROM</span>
+        <span class="p">(</span>
+            <span class="k">SELECT</span> <span class="n">PartnUmberID</span><span class="p">,</span> <span class="n">LineTotal</span><span class="p">,</span> <span class="k">MONTH</span><span class="p">(</span><span class="n">DateSold</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SalesMonth</span>
+            <span class="k">FROM</span> <span class="n">sales</span><span class="p">.</span><span class="n">SkuSales</span>
+            <span class="k">WHERE</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">DateSold</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2016</span>
+            
+        <span class="p">)</span> <span class="k">AS</span> <span class="n">SalesInYear</span>
+        <span class="n">PIVOT</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">LineTotal</span><span class="p">)</span> <span class="k">FOR</span> <span class="n">SalesMonth</span> <span class="k">IN</span> <span class="p">([</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">],[</span><span class="mi">8</span><span class="p">],[</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">],[</span><span class="mi">11</span><span class="p">],[</span><span class="mi">12</span><span class="p">]))</span>  <span class="k">AS</span> <span class="n">P</span>
+    <span class="p">)</span>
+    <span class="k">SELECT</span> <span class="n">PartNumberID</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">January</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">February</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">March</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">4</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">April</span>
+                 <span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">5</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span><span class="k">AS</span> <span class="n">May</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">6</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">June</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">7</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">July</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">8</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">August</span>
+                 <span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">9</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">September</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">10</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">October</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">11</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">November</span><span class="p">,</span> <span class="n">COALESCE</span><span class="p">([</span><span class="mi">12</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">December</span>
+     <span class="k">FROM</span> <span class="n">ProductSalesYearCTE</span>
+    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">PartNumberID</span>
+</code></pre>
+</div>
+
+<h3 id="unpivot">UNPIVOT</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>unpivot - columns-&gt;rows ```sql    
+SELECT ...
+FROM &lt;source_table_or_table_expression&gt;
+  UNPIVOT(&lt;target_col_to_hold_source_col_values&gt;
+    FOR &lt;target_col_to_hold_source_col_names&gt; IN(&lt;list_of_source_columns&gt;)) AS
+&lt;result_table_alias&gt; ```
+</code></pre>
+</div>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>	<span class="k">select</span> <span class="n">PartNumberID</span><span class="p">,</span> <span class="n">SalesMonth</span><span class="p">,</span> <span class="n">LineTotal</span>
+	<span class="k">from</span> <span class="n">sales</span><span class="p">.</span><span class="n">ViewProductSalesYear</span>
+		<span class="n">unpivot</span> <span class="p">(</span><span class="n">LineTotal</span> <span class="k">for</span> <span class="n">SalesMonth</span> <span class="k">in</span> <span class="p">(</span><span class="n">January</span><span class="p">,</span> <span class="n">February</span><span class="p">,</span> <span class="n">March</span><span class="p">,</span> <span class="n">April</span><span class="p">,</span> <span class="n">May</span><span class="p">,</span> <span class="n">June</span><span class="p">,</span> <span class="n">July</span><span class="p">,</span> <span class="n">August</span><span class="p">,</span><span class="n">September</span><span class="p">,</span><span class="n">October</span><span class="p">,</span><span class="n">November</span><span class="p">,</span><span class="n">December</span><span class="p">)</span> <span class="p">)</span> <span class="k">as</span> <span class="n">U</span>		
+</code></pre>
+</div>
+
+<h3 id="select-from-values">Select from VALUES</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span>
+    <span class="p">(</span>
+        <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">)</span> <span class="k">AS</span> <span class="n">t</span> <span class="p">(</span><span class="n">field_1</span><span class="p">,</span> <span class="n">field2</span><span class="p">)</span>
+    
+    <span class="k">SELECT</span> <span class="o">*</span>
+    <span class="k">FROM</span> <span class="p">(</span> <span class="k">VALUES</span>
+             <span class="p">(</span><span class="mi">10003</span><span class="p">,</span> <span class="s1">'20090213'</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">),</span>
+             <span class="p">(</span><span class="mi">10004</span><span class="p">,</span> <span class="s1">'20090214'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">),</span>
+             <span class="p">(</span><span class="mi">10005</span><span class="p">,</span> <span class="s1">'20090213'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">),</span>
+             <span class="p">(</span><span class="mi">10006</span><span class="p">,</span> <span class="s1">'20090215'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">AS</span> <span class="n">O</span><span class="p">(</span><span class="n">orderid</span><span class="p">,</span> <span class="n">orderdate</span><span class="p">,</span> <span class="n">empid</span><span class="p">,</span> <span class="n">custid</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="grouping-sets">Grouping Sets</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">SELECT</span> <span class="n">PartNumberID</span><span class="p">,</span> <span class="n">Store</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">LineTotal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TotalSold</span>
+    <span class="k">FROM</span> <span class="n">sales</span><span class="p">.</span><span class="n">SkuSales</span>
+    <span class="k">WHERE</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">DateSold</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2013</span>
+    <span class="k">group</span> <span class="k">by</span>
+        <span class="k">GROUPING</span> <span class="k">sets</span>
+        <span class="p">(</span>
+            <span class="p">(),</span> <span class="c1">-- total 2013 Sales</span>
+            <span class="p">(</span><span class="n">Store</span><span class="p">),</span> <span class="c1">-- total 2013 sales by store</span>
+            <span class="p">(</span><span class="n">store</span><span class="p">,</span><span class="n">PartNumberID</span><span class="p">)</span> <span class="c1">-- total 2013 sales by Store + Part Number</span>
+        <span class="p">);</span>
+        
+    <span class="c1">-- ROLLUP clause</span>
+    <span class="c1">-- will return</span>
+        <span class="c1">-- 1) all Sales</span>
+        <span class="c1">-- 2) Each Store</span>
+        <span class="c1">-- 3) Each Store + SKU</span>
+        <span class="c1">-- 4) Does not return just the SKU because PartNumberID listed after Store in rollup clause</span>
+    <span class="k">SELECT</span> <span class="n">PartNumberID</span><span class="p">,</span> <span class="n">Store</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">LineTotal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TotalSold</span>
+    <span class="k">FROM</span> <span class="n">sales</span><span class="p">.</span><span class="n">SkuSales</span>
+    <span class="k">WHERE</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">DateSold</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2013</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">ROLLUP</span><span class="p">(</span> <span class="n">Store</span><span class="p">,</span> <span class="n">PartNumberID</span><span class="p">);</span> <span class="c1">-- Left-right order important!</span>
+</code></pre>
+</div>
+
+<h3 id="group-by-cube">Group by cube</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="o">-</span> <span class="n">total</span> <span class="n">sales</span> <span class="k">at</span> <span class="k">each</span> <span class="n">store</span><span class="p">,</span> <span class="k">and</span> <span class="k">for</span> <span class="k">each</span> <span class="n">sku</span>
+    <span class="o">-</span>     <span class="n">PartNumberID</span>    <span class="n">Store</span>
+        <span class="k">null</span>    <span class="k">null</span>    <span class="o">-</span> <span class="n">total</span> <span class="mi">2013</span> <span class="n">sales</span>
+        <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>    <span class="k">null</span>    <span class="o">-</span> <span class="n">total</span> <span class="mi">2013</span> <span class="n">sales</span> <span class="k">for</span> <span class="n">sku</span> <span class="p">(</span><span class="k">any</span> <span class="n">store</span><span class="p">)</span>
+        <span class="k">null</span>    <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>    <span class="o">-</span> <span class="n">total</span> <span class="mi">2013</span> <span class="n">sales</span> <span class="k">at</span> <span class="n">store</span>
+        <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>    <span class="o">-</span> <span class="n">total</span> <span class="mi">2013</span> <span class="n">sales</span> <span class="k">for</span> <span class="n">sku</span> <span class="k">at</span> <span class="n">store</span>
+    
+    <span class="k">SELECT</span> <span class="n">PartNumberID</span><span class="p">,</span> <span class="n">Store</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">LineTotal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TotalSold</span>
+    <span class="k">FROM</span> <span class="n">sales</span><span class="p">.</span><span class="n">SkuSales</span>
+    <span class="k">WHERE</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">DateSold</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2013</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">CUBE</span><span class="p">(</span><span class="n">Store</span><span class="p">,</span> <span class="n">PartNumberID</span><span class="p">)</span>
+    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">PartNumberID</span>
+</code></pre>
+</div>
+
+<h3 id="insert-from-select">Insert from Select</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">ModelListing</span> <span class="p">(</span> <span class="n">ManufacturerCode</span><span class="p">,</span> <span class="n">Name</span><span class="p">)</span>
+            <span class="k">SELECT</span>  <span class="n">ManufacturerCode</span><span class="p">,</span> <span class="n">Name</span>
+            <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span>
+</code></pre>
+</div>
+
+<h3 id="insert-from-sproc">Insert from Sproc</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">ModelListing</span>
+        <span class="k">EXEC</span> <span class="n">product</span><span class="p">.</span><span class="n">ModelList</span>
+</code></pre>
+</div>
+
+<h3 id="select-into-a-new-table">Select into a new table</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>            <span class="c1">-- note that ModelID is an identity column, and will be created as such</span>
+            <span class="k">SELECT</span> <span class="n">ModelID</span><span class="p">,</span> <span class="n">ManufacturerCode</span><span class="p">,</span> <span class="n">Name</span>
+            <span class="k">INTO</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Model</span>
+            <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span>
+</code></pre>
+</div>
+
+<h3 id="bulk-insert">Bulk Insert</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    test file:  
+        1,Brian,2003
+        2,Kit,2006
+        3,Dean, 2007
+        4,Ryan,2010
+</code></pre>
+</div>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>        <span class="n">USE</span> <span class="n">tempdb</span><span class="p">;</span>
+
+        <span class="n">if</span> <span class="n">OBJECT_ID</span><span class="p">(</span><span class="s1">'dbo.SSBulk_Insert_Test'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">)</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span> <span class="k">drop</span> <span class="k">table</span> <span class="n">dbo</span><span class="p">.</span><span class="n">SSBulk_Insert_Test</span><span class="p">;</span>
+
+        <span class="k">create</span> <span class="k">table</span> <span class="n">dbo</span><span class="p">.</span><span class="n">SSBulk_Insert_Test</span>
+        <span class="p">(</span>
+            <span class="n">id</span> <span class="n">int</span><span class="p">,</span>
+            <span class="n">person</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+            <span class="n">year_started</span> <span class="n">int</span>
+        <span class="p">)</span>
+
+        <span class="n">BULK</span> <span class="k">INSERT</span> <span class="n">dbo</span><span class="p">.</span><span class="n">SSBulk_Insert_Test</span> <span class="k">FROM</span> <span class="s1">'c:</span><span class="se">\t</span><span class="s1">emp</span><span class="se">\S</span><span class="s1">SBulk_Insert_Test.txt'</span> <span class="c1">-- MUST be releative to the server</span>
+          <span class="k">WITH</span>
+            <span class="p">(</span>
+               <span class="n">DATAFILETYPE</span>    <span class="o">=</span> <span class="s1">'char'</span><span class="p">,</span>
+               <span class="n">FIELDTERMINATOR</span> <span class="o">=</span> <span class="s1">','</span><span class="p">,</span>
+               <span class="n">ROWTERMINATOR</span>   <span class="o">=</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+            <span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="last-identity">Last Identity</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="n">SCOPE_IDENTITY</span><span class="p">()</span> <span class="c1">-- @@identity is legacy, do not use</span>
+    
+    <span class="c1">-- scope_identity() will be null if no inserts in the current session</span>
+    <span class="c1">-- do not use the following as replacement for scope_identity()</span>
+    <span class="k">select</span> <span class="n">IDENT_CURRENT</span><span class="p">(</span><span class="s1">'product.Model'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="delete">DELETE</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">100</span> <span class="o">*</span>
+    <span class="k">INTO</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Model</span>
+    <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span>
+
+    <span class="c1">-- Does not update identity seed -</span>
+    <span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Model</span> <span class="c1">-- entire table</span>
+    <span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">MOdel</span> <span class="k">WHERE</span> <span class="n">ModelID</span> <span class="o">=</span> <span class="mi">10000</span>
+    
+    <span class="c1">-- resets identity seed</span>
+    <span class="k">TRUNCATE</span> <span class="k">TABLE</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Model</span>
+    
+    <span class="c1">-- delete based on join</span>
+    <span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">modelTemp</span>
+    <span class="k">FROM</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Model</span> <span class="n">modelTemp</span>
+    <span class="k">JOIN</span> <span class="n">product</span><span class="p">.</span><span class="n">Manufacturer</span> <span class="n">mfg</span>
+        <span class="k">ON</span> <span class="n">modelTemp</span><span class="p">.</span><span class="n">ManufacturerID</span> <span class="o">=</span> <span class="n">mfg</span><span class="p">.</span><span class="n">ManufacturerID</span>
+    <span class="k">WHERE</span> <span class="n">mfg</span><span class="p">.</span><span class="n">MaufacturerID</span> <span class="o">=</span> <span class="mi">10000</span>
+</code></pre>
+</div>
+
+<h3 id="update-based-on-join">UPDATE based on join</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">DECLARE</span> <span class="o">@</span><span class="n">table1</span> <span class="k">TABLE</span> <span class="p">(</span><span class="n">date_field</span> <span class="n">DATE</span><span class="p">,</span> <span class="n">value_field</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">table1</span> <span class="p">(</span><span class="n">date_field</span><span class="p">,</span> <span class="n">value_field</span><span class="p">)</span> <span class="k">VALUES</span>
+        <span class="p">(</span><span class="s1">'4/1/2012'</span><span class="p">,</span> <span class="s1">'intial value 1'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'4/2/2012'</span><span class="p">,</span> <span class="s1">'intial value 2'</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'4/3/2012'</span><span class="p">,</span> <span class="s1">'intial value 3'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'4/4/2012'</span><span class="p">,</span> <span class="s1">'intial value 4'</span><span class="p">)</span>
+        
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">@</span><span class="n">table1</span>
+
+    <span class="k">DECLARE</span> <span class="o">@</span><span class="n">table2</span> <span class="k">TABLE</span> <span class="p">(</span><span class="n">date_field</span> <span class="n">DATE</span><span class="p">,</span> <span class="n">value_field</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">table2</span> <span class="p">(</span><span class="n">date_field</span><span class="p">,</span> <span class="n">value_field</span><span class="p">)</span> <span class="k">VALUES</span>
+        <span class="p">(</span><span class="s1">'4/1/2012'</span><span class="p">,</span> <span class="s1">'modified value 1'</span><span class="p">),(</span><span class="s1">'4/2/2012'</span><span class="p">,</span> <span class="s1">'modified value 2'</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'4/3/2012'</span><span class="p">,</span> <span class="s1">'modified value 3'</span><span class="p">),(</span><span class="s1">'4/4/2012'</span><span class="p">,</span> <span class="s1">'modified value 4'</span><span class="p">)</span>
+            
+    <span class="k">UPDATE</span> <span class="n">t1</span>
+      <span class="k">SET</span> <span class="n">t1</span><span class="p">.</span><span class="n">value_field</span> <span class="o">=</span> <span class="n">t2</span><span class="p">.</span><span class="n">value_field</span>
+    <span class="k">FROM</span> <span class="o">@</span><span class="n">table1</span> <span class="n">t1</span>
+      <span class="k">JOIN</span> <span class="o">@</span><span class="n">table2</span> <span class="k">AS</span> <span class="n">t2</span>
+        <span class="k">ON</span> <span class="n">t1</span><span class="p">.</span><span class="n">date_field</span> <span class="o">=</span> <span class="n">t2</span><span class="p">.</span><span class="n">date_field</span>
+</code></pre>
+</div>
+
+<h3 id="merge">MERGE</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="n">MERGE</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="n">destination</span> <span class="k">table</span><span class="o">&gt;</span> <span class="k">as</span> <span class="n">dest</span>
+    <span class="k">using</span> <span class="o">&lt;</span><span class="k">source</span> <span class="k">table</span><span class="o">&gt;</span> <span class="k">as</span> <span class="k">source</span>
+        <span class="k">on</span> <span class="n">dest</span><span class="p">.</span><span class="k">key</span> <span class="o">=</span> <span class="k">source</span><span class="p">.</span><span class="k">key</span>
+    <span class="k">WHEN</span> <span class="n">MATCHED</span> <span class="k">THEN</span>
+        <span class="k">UPDATE</span> <span class="k">SET</span>
+            <span class="n">dest</span><span class="p">.</span><span class="n">val1</span> <span class="o">=</span> <span class="k">source</span><span class="p">.</span><span class="n">val1</span><span class="p">,</span>
+            <span class="n">dest</span><span class="p">.</span><span class="n">val2</span> <span class="o">=</span> <span class="k">source</span><span class="p">.</span><span class="n">val2</span>
+    <span class="k">WHEN</span> <span class="k">NOT</span> <span class="n">MATCHED</span> <span class="k">THEN</span>
+        <span class="k">INSERT</span> <span class="p">(</span><span class="k">key</span><span class="p">,</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">)</span>
+        <span class="k">VALUES</span> <span class="p">(</span><span class="k">source</span><span class="p">.</span><span class="k">key</span><span class="p">,</span> <span class="k">source</span><span class="p">.</span><span class="n">val1</span><span class="p">,</span> <span class="k">source</span><span class="p">.</span><span class="n">val2</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="output-clause">OUTPUT clause</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">DECLARE</span> <span class="o">@</span><span class="n">temp_table</span> <span class="k">TABLE</span> <span class="p">(</span><span class="n">ManufacturerCode</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">temp_table</span> <span class="p">(</span><span class="n">ManufacturerCode</span><span class="p">)</span>
+    <span class="k">SELECT</span> <span class="n">ManufacturerCode</span>
+    <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">ManufacturerCode</span>
+    <span class="k">WHERE</span> <span class="n">ManufacturerCode</span> <span class="k">LIKE</span> <span class="s1">'PG-%'</span><span class="p">;</span>
+
+
+    <span class="c1">-- same as above, but with optional OUTPUT clause</span>
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">temp_table</span> <span class="p">(</span><span class="n">ManufacturerCode</span><span class="p">)</span>
+    <span class="k">OUTPUT</span> <span class="n">inserted</span><span class="p">.</span><span class="n">ManufacturerCode</span> <span class="c1">-- each displayed field must be preceded by inserted.&lt;field name&gt;</span>
+    <span class="k">SELECT</span> <span class="n">ManufacturerCode</span>
+    <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">ManufacturerCode</span>
+    <span class="k">WHERE</span> <span class="n">ManufacturerCode</span> <span class="k">LIKE</span> <span class="s1">'PG-%'</span><span class="p">;</span>
+
+    <span class="c1">-- delete</span>
+    
+    <span class="k">DELETE</span> <span class="k">FROM</span> <span class="o">@</span><span class="n">temp_table</span>
+    <span class="k">OUTPUT</span> <span class="n">deleted</span><span class="p">.</span><span class="n">ManufacturerCode</span>
+    <span class="k">WHERE</span> <span class="n">ManufacturerCode</span> <span class="k">LIKE</span> <span class="s1">'PG-%'</span>
+    
+    <span class="c1">-- use output clause to view changed values (there is no 'updated' value per se)</span>
+    <span class="k">update</span> <span class="o">@</span><span class="n">temp_table</span>
+        <span class="k">set</span> <span class="n">ManufacturerCode</span> <span class="o">=</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">ManufacturerCode</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">output</span>
+        <span class="n">deleted</span><span class="p">.</span><span class="n">ManufacturerCode</span> <span class="k">as</span> <span class="n">prior_value</span><span class="p">,</span>
+        <span class="n">inserted</span><span class="p">.</span><span class="n">ManufacturerCode</span> <span class="k">as</span> <span class="n">new_value</span>
+</code></pre>
+</div>
+
+<h3 id="transactions">Transactions</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">BEGIN</span> <span class="n">TRAN</span> <span class="c1">-- if not specified, each statement runs as an implicit transaction</span>
+
+    <span class="c1">-- Statement #1</span>
+    <span class="c1">-- Statement #2</span>
+    <span class="p">...</span>
+    <span class="c1">-- Statement N</span>
+
+    <span class="k">COMMIT</span> <span class="n">TRAN</span> <span class="c1">-- All statements since BEGIN TRAN committed to database</span>
+
+    <span class="k">ROLLBACK</span> <span class="c1">-- ALL statements since BEGIN TRAN are canceled, no data will be changed</span>
+</code></pre>
+</div>
+
+<h3 id="detailed-transaction-template">Detailed Transaction Template</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">-- http://stackoverflow.com/questions/2073737/nested-stored-procedures-containing-try-catch-rollback-pattern/2074139#2074139</span>
+<span class="k">SET</span> <span class="n">XACT_ABORT</span><span class="p">,</span> <span class="n">NOCOUNT</span> <span class="k">ON</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">starttrancount</span> <span class="n">INT</span>
+
+<span class="k">BEGIN</span> <span class="n">TRY</span>
+         <span class="k">SELECT</span> <span class="o">@</span><span class="n">starttrancount</span> <span class="o">=</span> <span class="o">@@</span><span class="n">TRANCOUNT</span>
+         
+        <span class="n">IF</span> <span class="o">@</span><span class="n">starttrancount</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">BEGIN</span> <span class="n">TRANSACTION</span>
+                
+                <span class="c1">-- Do work, call nested sprocs</span>
+
+
+        <span class="n">IF</span> <span class="o">@</span><span class="n">starttrancount</span> <span class="o">=</span> <span class="mi">0</span> 
+                <span class="k">COMMIT</span> <span class="n">TRANSACTION</span>
+<span class="k">END</span> <span class="n">TRY</span> 
+<span class="k">BEGIN</span> <span class="n">CATCH</span>
+        <span class="n">IF</span> <span class="n">XACT_STATE</span><span class="p">()</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="k">AND</span> <span class="o">@</span><span class="n">starttrancount</span> <span class="o">=</span> <span class="mi">0</span> 
+                <span class="k">ROLLBACK</span> <span class="n">TRANSACTION</span> 
+                
+        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">error</span> <span class="n">INT</span><span class="p">,</span> <span class="o">@</span><span class="n">message</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span>
+        
+        <span class="k">SET</span> <span class="o">@</span><span class="n">error</span> <span class="o">=</span> <span class="n">ERROR_NUMBER</span><span class="p">()</span>
+        <span class="k">SET</span> <span class="o">@</span><span class="n">message</span> <span class="o">=</span> <span class="n">ERROR_MESSAGE</span><span class="p">()</span>
+        
+        <span class="n">RAISERROR</span><span class="p">(</span><span class="s1">'&lt;Sproc Name&gt; : %d: %s'</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">error</span><span class="p">,</span> <span class="o">@</span><span class="n">message</span><span class="p">)</span>
+<span class="k">END</span> <span class="n">CATCH</span>
+
+</code></pre>
+</div>
+
+<h3 id="locking">Locking</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Exclusive Locks
+    - generated by update operations
+    - no other session can update or read an item that has an exclusive lock
+- Shared Locks
+    - generated by selects
+    
+- Isolation levels affect how sql interacts with shared locks:
+    READ UNCOMMITTED - SELECT does not generate shared locks - dirty reads
+    READ COMMITTED (default) - SELECT requires shared locks
+    REPEATABLE READ - shared lock open for the entire transaction
+    SERIALIZABLE - locks range of keys returned to prevent phantom records
+    SNAPSHOT - reads previous row reivsion stored in tempdb
+    READ COMMITTED SNAPSHOT - Gets the last committed version of the row that was available when the statement started
+- can be set at database level or transaction level:
+    SET TRANSACTION ISOLATION LEVEL &lt;name&gt;
+</code></pre>
+</div>
+
+<h3 id="variables">Variables</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DECLARE</span> <span class="o">@</span><span class="n">i</span> <span class="k">AS</span> <span class="n">INT</span><span class="p">;</span>
+<span class="k">SET</span> <span class="o">@</span><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">i</span> <span class="k">AS</span> <span class="n">INT</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">-- only works in SS2008 or higher</span>
+    
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">ManufacturerCode</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Name</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">-- select into variables</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">ManufacturerCode</span> <span class="o">=</span> <span class="n">ManufacturerCode</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">Name</span> <span class="o">=</span> <span class="n">Name</span>
+<span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span>
+<span class="k">WHERE</span> <span class="n">ModelID</span> <span class="o">=</span> <span class="mi">10000</span>
+
+</code></pre>
+</div>
+
+<h3 id="flow-control">Flow Control</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">-- single statements</span>
+<span class="n">IF</span> <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span>
+    <span class="c1">-- will execute if expression is true</span>
+<span class="k">ELSE</span>
+    <span class="c1">-- will execute if expression is false or unknown</span>
+    
+<span class="c1">-- Multiple statements</span>
+<span class="n">IF</span> <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span>
+    <span class="k">BEGIN</span>
+        
+    <span class="k">END</span>
+<span class="k">ELSE</span>
+    <span class="k">BEGIN</span>
+        
+    <span class="k">END</span>
+    
+<span class="n">WHILE</span> <span class="o">&lt;</span><span class="n">expression</span>
+    <span class="k">begin</span>
+    
+    <span class="k">end</span>
+    
+<span class="c1">-- FOR replacement</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">i</span> <span class="k">AS</span> <span class="n">INT</span><span class="p">;</span>
+
+<span class="k">SET</span> <span class="o">@</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">WHILE</span> <span class="o">@</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+<span class="k">BEGIN</span>
+  <span class="n">PRINT</span> <span class="o">@</span><span class="n">i</span><span class="p">;</span>
+  <span class="k">SET</span> <span class="o">@</span><span class="n">i</span> <span class="o">=</span> <span class="o">@</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h3 id="cursors">Cursors</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">DECLARE</span> <span class="o">@</span><span class="n">ModelID</span>  <span class="n">INT</span><span class="p">,</span>
+            <span class="o">@</span><span class="n">ManufacturerCode</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+        
+    <span class="k">DECLARE</span> <span class="k">C</span> <span class="k">CURSOR</span> <span class="n">FAST_FORWARD</span> <span class="cm">/* read only, forward only */</span> <span class="k">FOR</span>
+    <span class="k">SELECT</span> <span class="n">ModelID</span><span class="p">,</span> <span class="n">ManufacturerCode</span>
+    <span class="k">FROM</span> <span class="n">Product</span><span class="p">.</span><span class="n">Model</span>
+    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ModelID</span>
+
+    <span class="k">OPEN</span> <span class="k">C</span>
+
+    <span class="k">FETCH</span> <span class="k">NEXT</span> <span class="k">FROM</span> <span class="k">C</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">ModelID</span><span class="p">,</span> <span class="o">@</span><span class="n">ManufacturerCode</span><span class="p">;</span>
+
+    <span class="n">WHILE</span> <span class="o">@@</span><span class="n">FETCH_STATUS</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">BEGIN</span>
+    <span class="c1">-- do work</span>
+    <span class="k">FETCH</span> <span class="k">NEXT</span> <span class="k">FROM</span> <span class="k">C</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">ModelID</span><span class="p">,</span> <span class="o">@</span><span class="n">ManufacturerCode</span><span class="p">;</span>
+    <span class="k">END</span>
+
+    <span class="k">CLOSE</span> <span class="k">C</span><span class="p">;</span>
+
+    <span class="k">DEALLOCATE</span> <span class="k">C</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h3 id="min-key-approach">Min Key approach</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">DECLARE</span> <span class="o">@</span><span class="n">ModelID</span>  <span class="n">INT</span>
+    <span class="k">DECLARE</span> <span class="o">@</span><span class="n">ManufacturerCode</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+
+    <span class="k">SET</span> <span class="o">@</span><span class="n">ModelID</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">ModelID</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">model</span><span class="p">)</span>
+
+    <span class="n">WHILE</span> <span class="o">@</span><span class="n">ModelID</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+    <span class="k">BEGIN</span>
+        <span class="k">SELECT</span> <span class="o">@</span><span class="n">ManufacturerCode</span> <span class="o">=</span> <span class="n">ManufacturerCode</span>
+        <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">model</span>
+        <span class="k">WHERE</span> <span class="n">ModelID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ModelID</span>
+        
+        <span class="c1">-- do work</span>
+        
+        <span class="k">SET</span> <span class="o">@</span><span class="n">ModelID</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">ModelID</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">model</span> <span class="k">WHERE</span> <span class="n">ModelID</span> <span class="o">&gt;</span> <span class="o">@</span><span class="n">ModelID</span><span class="p">)</span>
+    <span class="k">END</span>
+</code></pre>
+</div>
+
+<h3 id="temporary-tables">Temporary Tables</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">#</span><span class="n">TempTable</span>
+<span class="p">(</span>
+    <span class="n">ModelID</span> <span class="n">INT</span><span class="p">,</span>
+    <span class="n">ManufacturerCode</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">##</span><span class="n">GlobalTempTable</span>
+<span class="p">(</span>
+    <span class="n">ModelID</span> <span class="n">INT</span><span class="p">,</span>
+    <span class="n">ManufacturerCode</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="table-variables">Table Variables</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DECLARE</span> <span class="o">@</span><span class="n">TempTable</span> <span class="k">TABLE</span>
+<span class="p">(</span>
+    <span class="n">ModelID</span> <span class="n">INT</span><span class="p">,</span>
+    <span class="n">ManufacturerCode</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="table-types">Table Types</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">IF</span> <span class="n">TYPE_ID</span><span class="p">(</span><span class="s1">'dbo.OrderTotalsByYear'</span><span class="p">)</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+  <span class="k">DROP</span> <span class="k">TYPE</span> <span class="n">dbo</span><span class="p">.</span><span class="n">OrderTotalsByYear</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">TYPE</span> <span class="n">dbo</span><span class="p">.</span><span class="n">OrderTotalsByYear</span> <span class="k">AS</span> <span class="k">TABLE</span>
+<span class="p">(</span>
+  <span class="n">orderyear</span> <span class="n">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+  <span class="n">qty</span>       <span class="n">INT</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">MyOrderTotalsByYear</span> <span class="k">AS</span> <span class="n">dbo</span><span class="p">.</span><span class="n">OrderTotalsByYear</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h3 id="dynamic-sql">Dynamic SQL</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="c1">-- EXEC</span>
+    <span class="k">DECLARE</span> <span class="o">@</span><span class="k">sql</span> <span class="k">AS</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="k">SET</span> <span class="o">@</span><span class="k">sql</span> <span class="o">=</span> <span class="s1">'PRINT </span><span class="se">''</span><span class="s1">This message was printed by a dynamic SQL batch.</span><span class="se">''</span><span class="s1">;'</span><span class="p">;</span>
+    <span class="k">EXEC</span><span class="p">(</span><span class="o">@</span><span class="k">sql</span><span class="p">);</span>
+    
+    <span class="c1">-- sp_execute - supports params</span>
+    <span class="k">DECLARE</span> <span class="o">@</span><span class="k">sql</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">);</span>
+
+    <span class="k">SET</span> <span class="o">@</span><span class="k">sql</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'select * from product.model
+    where Name LIKE </span><span class="se">''</span><span class="s1">%</span><span class="se">''</span><span class="s1"> +  @Name + </span><span class="se">''</span><span class="s1">%</span><span class="se">''</span><span class="s1"> AND CategoryId = @CategoryId'</span>
+
+    <span class="k">EXEC</span> <span class="n">sp_executesql</span>
+        <span class="o">@</span><span class="n">stmt</span> <span class="o">=</span> <span class="o">@</span><span class="k">sql</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">params</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'@Name as varchar(100), @CategoryId as int'</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">Name</span> <span class="o">=</span> <span class="s1">'John Deere'</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">CategoryId</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre>
+</div>
+
+<h3 id="user-defined-functions">User Defined Functions</h3>
+
+<h4 id="scalar">Scalar</h4>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>        <span class="k">CREATE</span> <span class="k">FUNCTION</span> <span class="n">dbo</span><span class="p">.</span><span class="n">fn_age</span>
+        <span class="p">(</span>
+          <span class="o">@</span><span class="n">birthdate</span> <span class="k">AS</span> <span class="n">DATETIME</span><span class="p">,</span>
+          <span class="o">@</span><span class="n">eventdate</span> <span class="k">AS</span> <span class="n">DATETIME</span>
+        <span class="p">)</span>
+        <span class="k">RETURNS</span> <span class="n">INT</span> <span class="c1">-- &lt;-- Defines as scalar</span>
+        <span class="k">AS</span>
+        <span class="k">BEGIN</span>
+          <span class="k">RETURN</span>
+            <span class="n">DATEDIFF</span><span class="p">(</span><span class="k">year</span><span class="p">,</span> <span class="o">@</span><span class="n">birthdate</span><span class="p">,</span> <span class="o">@</span><span class="n">eventdate</span><span class="p">)</span>
+             <span class="o">-</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">MONTH</span><span class="p">(</span><span class="o">@</span><span class="n">eventdate</span><span class="p">)</span> <span class="o">+</span> <span class="k">DAY</span><span class="p">(</span><span class="o">@</span><span class="n">eventdate</span><span class="p">)</span>
+                       <span class="o">&lt;</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">MONTH</span><span class="p">(</span><span class="o">@</span><span class="n">birthdate</span><span class="p">)</span> <span class="o">+</span> <span class="k">DAY</span><span class="p">(</span><span class="o">@</span><span class="n">birthdate</span><span class="p">)</span>
+                   <span class="k">THEN</span> <span class="mi">1</span> <span class="k">ELSE</span> <span class="mi">0</span>
+              <span class="k">END</span>
+        <span class="k">END</span>
+        <span class="k">GO</span>
+</code></pre>
+</div>
+
+<h4 id="table-value">Table Value</h4>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>        <span class="k">ALTER</span> <span class="k">FUNCTION</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Split_MultiValue_Parameter</span><span class="p">]</span>
+        <span class="p">(</span>     <span class="o">@</span><span class="n">delimitedString</span>    <span class="n">VARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+            <span class="p">,</span><span class="o">@</span><span class="k">delimiter</span>            <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">RETURNS</span> <span class="o">@</span><span class="k">Table</span> <span class="k">TABLE</span> <span class="p">(</span><span class="n">VALUE</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1">-- &lt;-- Defines as table</span>
+
+        <span class="k">AS</span>
+        <span class="k">BEGIN</span>
+           <span class="k">DECLARE</span> <span class="o">@</span><span class="n">tempString</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">);</span>
+           <span class="k">SET</span> <span class="o">@</span><span class="n">tempString</span> <span class="o">=</span> <span class="k">ISNULL</span><span class="p">(</span><span class="o">@</span><span class="n">delimitedString</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span> <span class="o">+</span> <span class="o">@</span><span class="k">Delimiter</span><span class="p">;</span>
+           <span class="n">WHILE</span> <span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">tempString</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+           <span class="k">BEGIN</span>
+              <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">@</span><span class="k">Table</span>
+              <span class="k">SELECT</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">tempString</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>
+                     <span class="n">CHARINDEX</span><span class="p">(</span><span class="o">@</span><span class="k">Delimiter</span><span class="p">,</span><span class="o">@</span><span class="n">tempString</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+              
+              <span class="k">SET</span> <span class="o">@</span><span class="n">tempString</span> <span class="o">=</span> <span class="k">RIGHT</span><span class="p">(</span><span class="o">@</span><span class="n">tempString</span><span class="p">,</span>
+                <span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">tempString</span><span class="p">)</span><span class="o">-</span><span class="n">CHARINDEX</span><span class="p">(</span><span class="o">@</span><span class="k">Delimiter</span><span class="p">,</span><span class="o">@</span><span class="n">tempString</span><span class="p">))</span> <span class="p">;</span>
+           <span class="k">END</span>
+           <span class="k">RETURN</span><span class="p">;</span>
+        <span class="k">END</span>
+</code></pre>
+</div>
+
+<h3 id="stored-procedures">Stored Procedures</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>    <span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">product</span><span class="p">.</span><span class="n">ModelList</span>
+    <span class="k">AS</span>
+    <span class="k">BEGIN</span>
+    <span class="k">SET</span> <span class="n">NOCOUNT</span> <span class="k">ON</span><span class="p">;</span>
+
+    <span class="k">SELECT</span> <span class="n">ModelId</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">ManufacturerCode</span><span class="p">,</span> <span class="n">CategoryId</span><span class="p">,</span> <span class="n">Description</span>
+    <span class="k">FROM</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span>
+
+    <span class="k">END</span>
+</code></pre>
+</div>
+
+<h3 id="triggers">Triggers</h3>
+
+<h4 id="dml---data-modification">DML - Data Modification</h4>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>        <span class="k">ALTER</span> <span class="k">TRIGGER</span>  <span class="n">product</span><span class="p">.</span><span class="n">trProductPartNumberDateModified</span> <span class="k">ON</span> <span class="n">product</span><span class="p">.</span><span class="n">PartNumber</span> <span class="k">FOR</span> <span class="k">UPDATE</span> <span class="k">AS</span>
+        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">PartNumberID</span> <span class="n">INT</span><span class="p">;</span>
+        <span class="k">SELECT</span> <span class="o">@</span><span class="n">PartNumberID</span> <span class="o">=</span> <span class="n">PartNumberId</span> <span class="k">FROM</span> <span class="n">Inserted</span><span class="p">;</span>
+
+        <span class="k">UPDATE</span> <span class="n">Product</span><span class="p">.</span><span class="n">PartNumber</span>
+        <span class="k">SET</span> <span class="n">DateModified</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
+        <span class="k">WHERE</span> <span class="n">PartNumberID</span> <span class="o">=</span> <span class="o">@</span><span class="n">PartNumberID</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h4 id="structural-modification">Structural modification</h4>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code>            <span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="p">[</span><span class="n">DDL_Notify</span><span class="p">]</span>
+            <span class="k">ON</span> <span class="k">DATABASE</span>
+            <span class="k">FOR</span> <span class="n">DROP_TABLE</span><span class="p">,</span> <span class="n">ALTER_TABLE</span><span class="p">,</span><span class="n">CREATE_TABLE</span><span class="p">,</span> <span class="n">DROP_FUNCTION</span><span class="p">,</span> <span class="n">ALTER_FUNCTION</span><span class="p">,</span> <span class="n">CREATE_FUNCTION</span><span class="p">,</span>
+                <span class="n">DROP_PROCEDURE</span><span class="p">,</span> <span class="n">ALTER_PROCEDURE</span><span class="p">,</span> <span class="n">CREATE_PROCEDURE</span>
+                
+            <span class="k">AS</span>
+            
+            <span class="c1">-- actions</span>
+</code></pre>
+</div>
+
+<h3 id="try--catch">Try / Catch</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">BEGIN</span> <span class="n">TRY</span>
+
+    <span class="k">TRUNCATE</span> <span class="k">TABLE</span> <span class="n">tempdbo</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">DoesNotExist</span>
+    <span class="c1">-- following statement will not execute</span>
+    <span class="k">select</span> <span class="n">top</span> <span class="mi">1</span> <span class="o">*</span> <span class="k">from</span> <span class="n">product</span><span class="p">.</span><span class="n">model</span>
+
+<span class="k">END</span> <span class="n">TRY</span>
+
+<span class="k">BEGIN</span> <span class="n">CATCH</span>
+    <span class="c1">-- 4701 Cannot find the object "DoesNotExist" because it does not exist or you do not have permissions.</span>
+    <span class="k">SELECT</span> <span class="n">ERROR_NUMBER</span><span class="p">(),</span> <span class="n">ERROR_MESSAGE</span><span class="p">()</span>
+
+<span class="k">END</span> <span class="n">CATCH</span>
+</code></pre>
+</div>
+
+<h3 id="template-for-basic-table--relationships">Template for basic table + relationships</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">temp1</span>
+<span class="p">(</span>
+    <span class="n">Temp1_pk</span> <span class="n">INT</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+    <span class="k">CONSTRAINT</span> <span class="n">PK_dbo_Temp1</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">CLUSTERED</span><span class="p">,</span>
+    <span class="n">VALUE</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">GO</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">tempdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">temp2</span>
+<span class="p">(</span>
+    <span class="n">Temp2_pk</span> <span class="n">INT</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+        <span class="k">CONSTRAINT</span> <span class="n">pk_dbo_temp2</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">CLUSTERED</span><span class="p">,</span>
+    <span class="n">Temp1_fk</span> <span class="n">INT</span> <span class="k">NOT</span> <span class="k">NULL</span>
+        <span class="k">CONSTRAINT</span> <span class="n">FK_dbo_Temp2_dbo_Temp1</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Temp1_fk</span><span class="p">)</span>
+            <span class="k">REFERENCES</span> <span class="n">dbo</span><span class="p">.</span><span class="n">temp1</span><span class="p">(</span><span class="n">Temp1_pk</span><span class="p">),</span>
+    <span class="n">VALUE</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="k">NULL</span>
+<span class="p">)</span>
+<span class="k">GO</span>
+</code></pre>
+</div>
+
+<h3 id="identity-insert">Identity Insert</h3>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SET</span> <span class="n">IDENTITY_INSERT</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span> <span class="k">ON</span>
+
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span> <span class="p">(</span><span class="n">ModelID</span><span class="p">,</span> <span class="n">Name</span><span class="p">)</span>
+    <span class="k">VALUES</span> <span class="p">(</span><span class="mi">12345</span><span class="p">,</span> <span class="s1">'Test'</span><span class="p">)</span>
+
+<span class="k">SET</span> <span class="n">IDENTITY_INSERT</span> <span class="n">product</span><span class="p">.</span><span class="n">Model</span> <span class="k">OFF</span>
+</code></pre>
+</div>
+
+    </div>
+</div>
+
+
+                <div class="row">
+                  <div class="col-md-12 col-xs-12 footer">
+                <footer>
+                    © 2015-2016 Brian Vander Plaats - Powered by Jekyll.               
+                </footer>
+            </div>
+                </div>
+            </div> <!-- end /.col-md-9 -->
+        </div> <!-- end /.row -->
+
+    </div> <!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/jquery.min.js.download"></script>
+        <script src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/jquery-migrate-1.2.1.min.js.download"></script>
+        <script src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/bootstrap.min.js.download"></script>
+
+        <script src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/thickbox-compressed.js.download"></script>
+        <script src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/material.min.js.download"></script>
+        <script src="./T-SQL Cheat Sheet - Brian Vander Plaats_files/main.js.download"></script>
+    
+
+</body></html>
